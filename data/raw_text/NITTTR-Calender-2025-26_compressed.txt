@@ -1,0 +1,44 @@
+TRAINING PROGRAMMES(2025-2026)
+for
+TRAINING PROGRAMMES for AICTE Approved Engineering Colleges, Polytechnics and
+Allied Institutions
+id Progra Title Venue Coordinator From Date To Date
+mme
+Code
+1 MH-1 Sustainability and Green EC Pune V.D. Patil 09-06-2025 13-06-2025
+Technologies in Engineering (MH) A .K. Jain
+Curriculum
+2 MH-2 Research Methodology and EC Pune Bashirulla Shaik 16-06-2025 20-06-2025
+Proposal Writing for (MH) P .K. Purohit
+Engineering Academicians
+3 MH-3 Question Bank/Paper Designing EC Pune J.P. Tegar 23-06-2025 27-06-2025
+and Assessment (MH) V.D. Patil
+4 MH-4 Contract Management and EC Pune V.D. Patil 07-07-2025 11-07-2025
+Dispute Resolution in (MH) E xpert
+Engineering Projects
+5 MH-5 Integrating Technology into EC Pune V.D. Patil 18-08-2025 22-08-2025
+Engineering Classrooms: Tools (MH) Bashirulla Shaik
+and Techniques
+6 MH-6 Case Studies, Micro Projects, EC Pune V.D. Patil 08-09-2025 12-09-2025
+and Assignments Development (MH) M anish Bhargava
+with Assessment
+7 MH-7 Leadership Excellence and EC Pune V.D. Patil 06-10-2025 10-10-2025
+Effective Decision Making (MH) A.K. Jain
+8 MH-8 Innovation and Change EC Pune V.D. Patil 10-11-2025 14-11-2025
+Management for Organizational (MH) B .L. Gupta
+Growth
+9 MH-9 Intellectual Property Rights EC Pune P.K. Purohit 17-11-2025 21-11-2025
+(IPR) Awareness for (MH) C .S. Rajeshwari
+Engineering Educators
+10 MH-10 Construction Project EC Pune V.D. Patil 08-12-2025 12-12-2025
+Management (MH) Expert
+11 MH-11 Assessment and Evaluation EC Pune J.P. Tegar 15-12-2025 19-12-2025
+Techniques in Engineering (MH) A nju Rawlley
+Courses
+12 MH-12 Smart Building Materials and EC Pune A.K. Jain 05-01-2026 09-01-2026
+Construction Technologies (MH) M.C. Paliwal
+13 MH-13 Use of Technology for EC Asmita A. Khajanchee 23-02-2026 27-02-2026
+Development of Learning Pune(MH) M.A. Rizvi
+Resources
+14 MH-14 Enhancing Pedagogical Skills EC Pune V.D. Patil 16-03-2026 20-03-2026
+for Engineering Faculty (MH) R.P. Khambayat

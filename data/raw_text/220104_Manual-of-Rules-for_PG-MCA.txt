@@ -1,0 +1,384 @@
+VEERMATA JIJABAI TECHNOLOGICAL INSTITUTE
+(VJTI)
+MATUNGA, MUMBAI 400 019
+Manual of Rules
+For
+Three Year Master of Computer Applications (MCA) Programme
+And
+Two Year Post Graduate Programmes Leading to
+Master of Technology (M.Tech.)
+Implemented from the batch admitted in Academic Year 2013-14
+1
+VEERMATA JIJABAI TECHNOLOGICAL INSTITUTE
+(Autonomous Institute affiliated to University of Mumbai)
+Manual of Rules
+For
+201 Three Year Master of Computer Applications Programme
+And
+Two Year Post Graduate Programmes Leading to
+Master of Technology (M.Tech.)
+in
+202 Civil Engineering (with specialization in Environmental Engineering)
+203 Civil Engineering (with specialization in Construction Management)
+204 Civil Engineering (with specialization in Structural Engineering)
+205 Computer Engineering
+206 Electrical Engineering (with specialization in Power Systems)
+207 Electrical Engineering (with specialization in Control Systems)
+208 Electronics Engineering
+209 Mechanical Engineering (with specialization in Machine Design)
+210 Mechanical Engineering (with specialization in Automobile Engineering)
+211 Mechanical Engineering (with specialization in CAD/CAM & Automation)
+212 Production Engineering
+213 Textile Technology
+215 Electronics & Telecommunication Engineering
+214 Mechanical Engineering (with specialization in Mechatronics)
+216 Mechanical Engineering (with specialization in Thermal Engineering)
+217 Computer Engineering (with specialization in Network Infrastructure
+Management Systems)
+218 Information Technology (with specialization in Software Engineering)
+219 Project Management
+2
+INTRODUCTION
+This manual sets out the rules, procedures and requirements of the postgraduate programmes of
+study that fall under the purview of Academic Council of VJTI.
+The rules and regulations described in this manual are applicable to three years “201 Master of
+Computer Applications” Programme and two year Master of Technology programmes listed
+below:
+202 Civil Engineering (with specialization in Environmental Engineering)
+203 Civil Engineering (with specialization in Construction Management)
+204 Civil Engineering (with specialization in Structural Engineering)
+205 Computer Engineering
+206 Electrical Engineering (with specialization in Power Systems)
+207 Electrical Engineering (with specialization in Control Systems)
+208 Electronics Engineering
+209 Mechanical Engineering (with specialization in Machine Design)
+210 Mechanical Engineering (with specialization in Automobile Engineering)
+211 Mechanical Engineering (with specialization in CAD/CAM & Automation)
+212 Production Engineering
+213 Textile Technology
+215 Electronics & Telecommunication Engineering
+214 Mechanical Engineering (with specialization in Mechatronics)
+216 Mechanical Engineering (with specialization in Thermal Engineering)
+217 Computer Engineering (with specialization in Network Infrastructure
+Management Systems)
+218 Information Technology (with specialization in Software Engineering)
+219 Project Management
+1. Admissions
+Admissions to the first year of all the programmes is made before the start of each academic
+year as per the procedure finalized by the Competent Authority appointed by Government of
+Maharashtra state, from time to time. A limited number of students are admitted at the second
+year of MCA programme under the lateral entry scheme procedure finalized by the Competent
+Authority appointed by Government of Maharashtra state.
+The Institute reserves the right to revoke the admission made to a candidate, if it is found at any
+time after admission that she/he does not fulfill all the requirements stipulated in the offer of
+admission.
+The Institute also reserves the right to cancel the admission of any student and discontinue
+her/his studies at any stage of studentship for unsatisfactory academic performance and/or
+undisciplined conduct.
+3
+2. Academic Calendar
+The academic activities of the Institute are regulated by Academic Calendar approved by the
+Chairman, Academic Council and released at the beginning of each year. It is mandatory for
+students and faculty to strictly adhere to the academic calendar for completion of academic
+activities. Academic Calendar can be seen on Institute website.(http://www.vjti.ac.in/)
+3. Attendance
+Attendance in the class is compulsory and is monitored every four weeks. The Institute expects
+100%attendance. However, due to ill-health or other emergency situations, absence up to 20% is
+considered on case to case basis on production of documentary proof. In case, attendance of a
+student falls short by more than 20%, the course instructor shall warn the student in writing
+every four weeks and keep the Programme coordinator / Head of Department informed. In case
+of a student whose attendance falls short by more than 20% at the end of a semester, the
+Department Academic Committee (DAC) shall forward details of the same along with specific
+recommendation to Dean (Academic Programs) for further action. A student not having 80%
+attendance is likely to be debarred from appearing in the semester-end examination and given a
+“RR” grade. Such a student is required to re-register for the same course in a subsequent
+semester, when the course is offered next. In case a student is unable to attend classes for more
+than four weeks in a semester, she/he may apply to the Dean (Academic Programs) through
+Chairman, DAC, for withdrawal from the semester, which shall mean, withdrawal from all the
+registered courses in the semester. However such application should be made as early as
+possible and latest before the start of End Semester Examinations. Any application on medical
+grounds should be accompanied with a medical certificate from a registered medical practitioner
+containing the registration number of the practitioner.
+4. Programme Structure
+All students admitted for any of the postgraduate programmes, undergo two year - four-semester
+studies (three year – six semesters in case of MCA programme). Every programme has a
+prescribed course structure which in general is termed as the Curriculum. It prescribes all the
+theory courses, laboratory courses and other requirements for the degree and sets out the
+nominal sequence semester-wise. It also gives the syllabi and a list of textbooks and reference
+books for each course.
+4
+4.1: Course Credit Structure
+In general, a certain quantum of academic work measured in terms of credits is laid down as the
+requirements for the MCA / M. Tech. degree. A student earns credits by satisfactorily passing
+courses/carrying out other academic activities every semester. The amount of credits associated
+with a course is dependent upon the number of hours of instruction per week in that course.
+Similarly, the credits associated with any of the other activities, is dependent upon the quantum
+of work expected to be put in for each of the other activity per week.
+4.2: Theory and Laboratory Courses
+Courses are broadly classified as Theory courses and Laboratory Courses. Theory courses
+consist of lecture (L) and tutorial (T) hours. Laboratory courses consist of practical hours.
+Credit(C) for a course is dependent on the number of hours of instruction per week in that
+course, and is obtained by using a multiplier of one (1)for lecture and tutorial hours, and a
+multiplier of zero point five (0.5) for laboratory hours. Thus, for example, a theory course
+having two lectures and one tutorial per week throughout the semester carries a credit of 3.
+Similarly, a laboratory course having three laboratory hours per week throughout semester
+carries a credit of 1.5. The M.Tech project is carried out in semester III and IV and carries 24
+credits, while the MCA project is carried out in semester VI and carries 10 credits. General
+pattern of the contact hours and credits for a typical semester is as indicated below:
+Lecture Tutorial Practical Co-Curricular Total Hours Credits
+15 - 12 8 35 21
+5
+The scheme is prescribed in following format:
+Examination Scheme
+Course Name Hours/Week Credits
+(Evaluation in % Weightage)
+ESE
+L T P TA IST ESE Total (W)
+(hrs)
+Theory Course 1 3 - - 3 20 20 60 100 3
+Theory Course 2 3 - - 3 20 20 60 100 3
+Theory Course 3 3 - - 3 20 20 60 100 3
+Theory Course 4 3 - - 3 20 20 60 100 3
+Theory Course 5 3 - - 3 20 20 60 100 3
+Communications Skills 2 - - - Pass / No Pass
+Total 17 - 15
+Examination Scheme
+Course Name Hours/Week Credits
+(Evaluation in % Weightage)
+ESE
+L T P TA ESE (O / P) Total (P)
+(hrs)
+Lab Course 1 - - 3 1.5 50 50 100 -
+Lab Course 2 - - 3 1.5 50 50 100 -
+Lab Course 3 - - 3 1.5 50 50 100 -
+Seminar - - 3 1.5 25 - 25 -
+Total - - 12 6
+Course Name Hours/Week
+L T P
+Industry-Academia
+- - 2 Attended/Not Attended
+Interaction
+E-Library - - 2 -
+Internet - - 2
+Total - - 6
+4.3:Project:
+Project is a course wherein, under the guidance of a faculty member assigned by the
+Department, a student is required to do some innovative work with the application of knowledge
+gained while undergoing various courses in the earlier year. The student is expected to do a
+survey of literature in the subject, work out a project plan and theoretical analysis, experimental
+investigation, a proto-type design, analysis of data and development of new relationships,
+fabrication and set up of new equipment etc. Through the project, the student has to exhibit both
+the analytical and practical skills.
+The M.Tech. project is evaluated in three stages. The first stage and second stage evaluation is
+done by a committee of institute faculty (at least two faculty members including project guide).
+The first stage evaluation is done at the end of pre-final semester. The second stage evaluation is
+6
+done during the final semester before submission of the synopsis. A committee comprising a
+minimum of two examiners including the guide and an external examiner carries out the third
+stage evaluation at the end of final semester.
+After the Second stage evaluation, one copy of the synopsis of the project work done and name
+of external examiner duly endorsed by the DAC is sent to Examination Section for approval of
+Dean (AP). The student has to submit the Synopsis at least one month prior to the prescribed last
+date of submission of project report. The student has to submit the Dissertation on or before the
+prescribed date mentioned in the Academic Calendar. Those students, who are unable to submit
+by the due date, will have to apply for extension with justification before the last date of
+submission of synopsis. The guide should forward the application through Head of the
+Department, with a recommendation of period of extension to Dean (Academic Programs) for
+final decision on the application.
+Student has to submit two soft-bound copies of the dissertation to the Programme Coordinator or
+a faculty duly authorized by DAC, who will forward the same to the examiners.
+After the third stage evaluation, if the Project work is accepted by the Examiners, student should
+submit one hardbound copy (after making corrections, if any, as suggested by examiners) to the
+department. This copy is to be maintained in the Department for record. One soft copy on a CD
+has to be submitted for record of the Central Library.
+During the third stage evaluation, 25% weightage shall be given for the initiative, interest, effort
+and sincerity shown by the student during the entire project work. Another 50% weightage shall
+be given for the depth of knowledge depicted and level of analytical skills shown in the report
+and during viva. 25% weightage shall be given to the presentation of report and seminar.
+The M.Tech. project carries twenty four (24) credits. The first and second stage assessments
+carry six (6) credits each. Twelve credits are given to third stage evaluation.
+The MCA project is evaluated in a single stage at the end of the final semester. It carries 10
+credits.
+Students submitting the reports late or those who have to re-submit the report due to fail grades
+shall be entitled to a maximum grade of BB.
+4.4: Seminar
+Seminar is a course where in under the guidance of a faculty member, a group of students is
+expected to survey published technical literature, understand different aspects of the problem
+7
+and arrive at a report. While doing a seminar course, the student is expected to critically analyze
+research work of various authors, learn the investigation methodologies, study concepts,
+techniques and the results presented in these papers, and present a seminar report. It is
+mandatory to give a seminar presentation before the seminar guide. Seminars typically carry 1.5
+credits.
+4.4: Non-Credit Requirement :
+All students admitted to first year of the two year M.Tech. programme have to undergo a
+noncredit course on communication skills in first and second semester of the programme. No
+credits are awarded for this course, but a PASS (grade of P) in this course is essential for award
+of the Degree. However, if a student fails to get a PASS (Grade of P) before entering into
+Second year, the student has to undergo a summer course in Language Laboratory.
+5. Examination / Assessment:
+5.1: Modes of Evaluation
+Semester wise performance assessment of every registered student is done through various
+modes of examination. These include quizzes, class tests, home assignments, group assignments,
+viva-voce, Mid-Semester Examination and Semester-End Examination. The Instructor will
+announce the modes of evaluation and distribution of weightage for each of the assessments at
+the beginning of the course. Various modes of assessment for theory and laboratory courses
+along with the recommended relative weightage of various components are given in this section.
+5.1.1: Modes of Evaluation for Theory Courses
+The Institute follows a continuous evaluation system. A typical theory course evaluation shall
+have term-work assessment (TA), in-semester tests (IST) and an end-semester examination
+(ESE).The term-work assessment will be carried out by the course instructor on the basis of at
+least four components like attendance, quiz, assignments, problems, paper or report on a topic,
+seminar etc.
+For Evaluation against In-semester tests (IST) there will one mid-semester test (MST) and two
+class tests (one prior and one after the mid semester test). The Mid semester test will carry forty
+marks and the two class tests will carry ten marks each. Score for In-semester tests will be
+calculated by giving 33% weightage to both of the class tests together and 67 % weightage to
+8
+MST. The weightage assigned to each of the evaluation components for each course is indicated
+along with the scheme of evaluation. The weightages for term work assessment, in-semester test
+and end-semester examination for each course is 20:20:60. The course instructor shall
+continuously grade the performance of the student in various components of the term-work
+and the student shall be kept informed about the performance. The instructor has to prepare a
+marks list for the performance of students in the in-semester examination. The test papers will
+be returned to the students after taking signature of the students on the marks list. Sample copies
+(at least three) of the term-work of all courses, on the basis of which the term work assessment is
+done, shall be preserved in the department for a period of at least three academic years. The end
+semester examination shall cover full syllabus of the course.
+Attendance in the end semester examination is compulsory. If a student misses the examination
+due to personal illness, accident or any untoward incident, student should apply to the Controller
+of Examinations through the DAC within three days for a permission to appear for next
+examination. If the student fails to produce the necessary proofs, the student will be deemed to
+be failed in those courses and will be awarded RR grade. The student shall then be required to
+repeat the courses. Evaluated end-semester examination answer books shall be preserved by the
+examination section for a period of at least one academic year.
+5.1.2: Modes of Evaluation for Laboratory Courses
+The assessment in a laboratory course will be based on turn-to-turn supervision of the student’s
+work, her/his performance in viva-voce examinations and group discussions, the quality of their
+work as prescribed through laboratory journals and a semester-end practical or oral examination.
+It is obligatory to maintain a laboratory journal as prescribed by the course instructor. The
+weightages are 50:50 for term work assessment and end-semester examination.
+5.2: Grading
+The Institute follows a relative grading system. Based on the combined performance in all
+assessments, the student is awarded a letter grade in every course taken by her/him in a
+particular semester as per the curriculum. The grade awarded to a student depends not on her /
+his absolute performance but her / his performance relative to other students in her / his class.
+These letter grades not only indicate a qualitative assessment of the student’s performance but
+also carry a quantitative (numeric)equivalent called the Grade Point. The letter grades and their
+equivalent grade points are given below
+9
+Grading Scheme
+Letter Grade Grade Point Indicative degree of mastery
+AA 10.0 Outstanding
+AB 9.0 Excellent
+BB 8.0 Very good
+BC 7.0 Good
+CC 6.0 Satisfactory
+CD 5.0 Average
+DD 4.0 Marginal
+EE 2.0 Unsatisfactory
+FF 0.0 Very weak
+Letter Grade Explanation
+AU Audit
+PP / NP Passed / Not Passed
+A / NA Attended / Not Attended
+II In complete due to non-appearance in end semester
+examination on health grounds.
+RR Fail due to lack of attendance or non-appearance in
+end semester examination, should repeat the course.
+The above grades do not have any grade points associated with them.
+The student passes the course if she/he scores any grade from AA to DD, grades EE and FF
+being fail grades.
+The II (Incomplete) grade is awarded due to non-appearance in end semester examination on
+health grounds. The student has to appear for the end semester examination for the course when
+it is conducted next.
+The RR grade is awarded if the student fails to have minimum attendance for the classes
+(including laboratory courses) or if the student fails to attend the end-semester examination
+without having any valid reasons. Such a student has to repeat that course whenever it is offered
+again.
+A student has to pass a course in not more than three end-semester examinations, including any
+re-examination conducted for the course. If the student fails to do so, she/he shall have to repeat
+the course whenever it is offered next.
+10
+If a student fails to appear for any of the end-semester examination due to reasons beyond
+control, the student should inform the Head of the department within three days of start of
+examination.
+A student will have a maximum of three attempts to pass a course. For the second and third
+attempt, the student’s grade sheet will indicate “Passed in second/third attempt”
+If a student repeats a course, his grade sheet will indicate “course repeated”.
+The most recent grade for the course is taken into account for the computation of SPI / CPI.
+There is no provision for improvement of grades in individual courses.
+5.4: Academic Malpractice
+Academic malpractices are severely dealt with. In case of malpractice during any evaluation like
+assignments, quizzes, tests, and examinations, the case should be referred to Unfair Means
+Committee formed for the purpose. A student shall be suitably punished if the unfair means
+committee prima facie finds the student has resorted to malpractice or any other unfair means.
+5.5: Performance Indices
+5.5.1: Semester Performance Index (SPI)
+The performance of a student in a semester is indicated by a number called Semester
+Performance Index, SPI. The SPI is the weighted average of the grade points obtained in all the
+courses registered by the student during the semester. For example, if a student appears for five
+courses (Theory/labs./Projects/ etc.) in a semester with credits C1, C2, C3, C4 and C5 and
+her/his grade points in these courses are g1, g2, g3, g4 and g5 respectively, then her/his SPI is
+equal to:
+The SPI is calculated to two decimal places.
+The SPI for any semester will take into consideration the RR/II grades awarded in that semester.
+For example if a student has failed in course 4 with FF grade, the SPI will then be computed as:
+11
+5.5.2 Cumulative Performance Index (CPI)
+An up to date assessment of the overall performance of a student from the time she/he entered
+the Institute is obtained by calculating a number called the Cumulative Performance Index, CPI,
+in a manner similar to the calculation of SPI. The CPI therefore considers all the courses
+registered by the student, towards the minimum requirement of the degree she/he has enrolled
+for, since she/he entered the Institute. The CPI is calculated at the end of every semester to one
+decimal place and is indicated in semester grade reports. In the semester where the student has
+failed in course(s), her/his grade sheet will not indicate any CPI.
+A CPI of 6.75 or above will be considered as equivalent to First Class (60%) of similar
+programmes of the University. The institute may issue a separate certificate mentioning first
+class to only those candidates acquiring CPI 6.75 or above.
+6.Programme duration
+A student of two year post graduate degree programme who fails to graduate within three years
+from date of admission to programme shall be terminated from the programme. A student of
+three year post graduate degree who fails to graduate within five years from date of admission to
+programme shall be terminated from the programme.
+7. Promotion to next year for PG Programme
+7.1: M.Tech.
+A student will be promoted and allowed to register for the Second year if she/he has acquired
+minimum of 36 credits in first year .A student who fails to earn a CPI of 5.0 at the end of first
+year has to repeat the course/s in which she / he has failed or earned a grade of ‘DD’, provided
+the course/s is offered, on the recommendation of DAC and approval of Dean (AP).
+7.2: MCA
+A student will be promoted and allowed to register for the Second year if she/he has acquired
+minimum of 36 credits in first year. A student will be promoted and allowed to register for the
+Third year if she/he has cleared all courses of the first year and acquired minimum of 36 credits
+in second year. A student who fails to earn a CPI of 5.0 at the end of first year / second year /
+third year, has to repeat the course/s in which she / he has failed or earned a grade of ‘DD’,
+provided the course/s is offered, on the recommendation of DAC and approval of Dean(AP).
+12
+8. Eligibility for the Award of Degree
+The names of the students who satisfy below mentioned requirements shall be forwarded to the
+University of Mumbai for award of MCA or M. Tech. in the relevant discipline.
+ The student should have studied and passed all the courses and acquired necessary
+number of credits as per the requirements of a particular degree programme and as
+prescribed by the Institute from time to time within the stipulated time from date of first
+registration to programme.
+ The student should have paid all the Institute and University dues including the dues of
+Department, Hostels, Library and other units.
+ Obtained a CPI of atleast 5.00 at the end of the semester in which she/he completes all
+the requirements for the award of Degree;
+ No case or disciplinary action is pending against her/him.
+9. Improvement in CPI
+9.1: M.Tech Programme
+If a student has graduated, but wishes to improve her / his CPI, she / he will have to
+appear for end semester examination of atleast two courses of Semester I and Semester II
+within two years of graduation by paying the required examination fees. Only one
+attempt is provided for such improvement. The result of such examination will be
+declared only if there is improvement in CPI over earlier CPI.
+9.2 MCA Programme
+If a student has graduated, but wishes to improve her / his CPI, she / he will have to
+appear for end semester examination of atleast three courses (except for the project) of
+Semester IV and Semester V within two years of graduation by paying the required
+examination fees. Only one attempt is provided for such improvement. The result of
+such examination will be declared only if there is improvement in CPI over earlier
+CPI.
+13

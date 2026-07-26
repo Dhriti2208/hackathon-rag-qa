@@ -1,0 +1,354 @@
+VEERMATA JIJABAI TECHNOLOGICAL
+INSTITUTE
+(VJTI)
+MATUNGA, MUMBAI 400 019
+(Autonomous Institute affiliated to University of Mumbai)
+Manual of Rules
+For
+Undergraduate Programmes Leading to
+Bachelor of Technology (B Tech) (Working Professionals)
+Implemented from the batch admitted in Academic Year 2024-25
+1
+VEERMATA JIJABAI TECHNOLOGICAL INSTITUTE
+(Autonomous Institute affiliated to University of Mumbai)
+Manual of Rules
+For
+Undergraduate Programmes Leading to
+Bachelor of Technology (B Tech) (Working Professionals)
+In
+° 151 Civil Engineering
+° 152 Electrical Engineering
+° 153 Computer Engineering
+2
+INTRODUCTION
+VJTI aims to establish global leadership in the field of Technology and develop competent
+human resources for providing service to the society. The curriculum provides broad based
+knowledge and builds a path for the life long process of learning and exploring. VJTI has
+introduced undergraduate programs for working professional. The students are admitted at
+the second year level of four year undergraduate course. A student needs to complete Skill
+courses, Humanities, Social Science and Management courses in addition to Program Core
+and Elective courses.
+This manual sets out the rules, procedures, and requirements of the undergraduate
+programmes of study for working professionals that fall under the purview of Academic
+Council of VJTI.
+The rules described in this manual are applicable to undergraduate autonomous programmes
+listed below:
+151 Civil Engineering
+152 Electrical Engineering
+153 Computer Engineering
+1. Admissions
+Admissions to the second year of all the programmes are made before the start of each
+academic year as per the procedure finalized by the Competent Authority appointed by the
+Government of Maharashtra state, from time to time. Students having a Diploma in relevant
+branch of engineering are admitted directly at the second year of all the programmes.
+The Institute reserves the right to revoke the admission made to a candidate, if it is found at
+any time after admission that she/he does not fulfill all the requirements stipulated in the
+offer of admission.
+The Institute also reserves the right to cancel the admission of any student and discontinue
+her/his studies at any stage of studentship for indiscipline.
+2. Academic Calendar and Course Registration
+The academic activities of the Institute are regulated by an Academic Calendar approved
+by the Academic Council, and released at the beginning of each year. It is mandatory for
+students and faculty to strictly adhere to the academic calendar for completion of academic
+activities. Academic Calendar can be seen on the Institute website (http://www.vjti.ac.in).
+There are two Semesters (Terms) in an academic year (Odd semester – July to Nov; and
+Even semester – January to May) during which all courses specified for various degree
+programmes are offered.
+All eligible students have to carry out course registration as indicated in the Academic
+3
+Calendar. Late registration may be permitted by the Department Academic Committee
+(DAC) on genuine grounds till the end of second week from the start of the semester on
+payment of the necessary fine. If any student fails to register as per the given schedule, the
+student will be solely responsible for any further loss. Such students will not be allowed to
+register later and may lose a year.
+3. Attendance
+Attendance in the class is compulsory and is continuously monitored. The Institute expects
+100% attendance. However, due to ill-health or other emergency situations, absence up to
+25% is considered on case-to-case basis on production of documentary proof. Any
+application on medical grounds should be accompanied with a medical certificate from a
+registered medical practitioner containing the registration number of the practitioner. In case
+of a student whose attendance falls short by more than 25% at the end of a semester, the DAC
+shall forward details of the same along with specific recommendation to Dean (Academic
+Programs) for further action. A student not having 75% attendance will be debarred from
+appearing in the semester-end examination and given a “RR” grade. Such a student is
+required to re-register for the same course in a subsequent semester, when the course is
+offered next. In case a student is unable to attend classes for more than four weeks in a
+semester, she/he may apply to the Dean (Academic Programs) through the DAC, for
+withdrawal from the semester, which means, withdrawal from all the registered courses
+in the semester. However, such application should be made as early as possible and latest
+before the start of the End Semester Examination. The attendance requirement is applicable
+to summer term courses also.
+4. Programme Structure
+All students admitted to any of the undergraduate programmes, undergo a three year - six-
+semester programme. Every B. Tech. programme has a prescribed course structure which
+in general is termed as the Curriculum. It prescribes all the theory courses, laboratory
+courses and other requirements for the degree and sets out the nominal sequence semester-
+wise. It also gives the course contents and a list of textbooks and reference books for each
+course.
+4.1 : Course Credit Structure
+In general, a certain quantum of academic work measured in terms of credits is laid down
+as the requirements for the B. Tech. degree. A student earns credits by satisfactorily
+passing courses and carrying other academic activities every semester. The number of
+credits associated with a course is dependent upon the number of hours of instruction per
+week in that course. Similarly, the credits associated with any of the other activities, as
+defined in scheme of instruction, are dependent upon the quantum of work expected to be
+put in for each of the other activity per week. Credits earned by a student are deposited by the
+institute in the Academic Bank of Credits (ABC) maintained by the Ministry of Education,
+4
+Government of India. It is therefore necessary and mandatory for each student admitted to
+VJTI to open a student account in the ABC (https://www.abc.gov.in). Credits deposited allows
+student mobility as per NEP 2020.
+4.2 : Theory and Laboratory Courses
+Courses are broadly classified as Theory courses and Laboratory Courses. Theory courses
+consist of lecture (L) and tutorial (T) hours. Laboratory courses consist of practical hours.
+Credit (C) for a course is dependent on the number of hours of instruction per week in that
+course, and is obtained by using a multiplier of one (1) for lecture and tutorial hours, and a
+multiplier of zero point five (0.5) for laboratory hours. Thus, for example, a theory course
+having three lectures and one tutorial per week throughout the semester carries a credit of
+four (4). Similarly, a laboratory course having two laboratory hours per week throughout
+semester carries a credit of 1.0.
+4.3 Multidisciplinary Open Elective Courses
+i) These courses will be offered in final year
+ii) Students have to earn a total of 6 credits from these open elective courses.
+iii) The Curriculum will provide the list of the open elective courses to be offered.
+4.4 Programme Core Course (PCC), Programme Elective Course (PEC), Vocational and
+Skill Enhancement Course (VSEC):
+Each student has to mandatorily earn minimum credits from the following grouping of
+courses:
+1. Program Core Courses (PCC)
+2. Program Elective Courses(PEC)
+3. Vocational and Skill Enhancement Course(s) (VSEC)
+4. Ability Enhancement Course(s) (AEC)
+The curriculum provides the details of these courses including the credits required to be
+earned from them.
+4.5 Project:
+Project is a course wherein, under the guidance of a faculty member assigned by the
+Department, a student or a group of students, with not more than four students in a group, is
+required to do some novel work with the application of knowledge gained while undergoing
+various courses in the earlier semesters. The student is expected to do a survey of literature,
+work out a project plan and carry it out through experimentation and/ or modeling and / or
+computation and /or fabrication. Through the project work a student has to exhibit skills for
+5
+both analysis and synthesis. In case of group project, role of every individual should be
+clearly defined. The project may be carried out in an Industry as per the policy defined by
+the institute.
+The undergraduate project carries 06 credits. The project is evaluated at the end of the
+semester. The final project report should be submitted in the prescribed format at least one
+week prior to the end of semester or by the prescribed date and assessment shall be done in
+the week earmarked for practical / oral examinations or otherwise as indicated in the
+Academic Calendar. The assessment is carried out by a committee comprising a minimum
+of two examiners including the guide and an external examiner.
+In case a student is awarded FF grade, the student has to submit the project report afresh
+(even if the Project is a group project) and undergo the assessment again. Students
+submitting the reports late or those who have to re-submit the report due to a failure grade
+will have a mention “Project passed in second attempt” on their grade sheet.
+The student should submit two soft bound printed copies for the assessment. After
+successfully completing assessment, the student /group should submit one hardbound copy
+to the Department for record and a softcopy for archival in library.
+5 Examination / Assessment:
+5.1 : Modes of Evaluation
+Semester wise performance assessment of every registered student is done through various
+modes of examination. These include Teacher /Term work Assessment (TA), Mid-Semester
+Test and End-Semester Examination. Teacher/Term work Assessment may include quizzes,
+class tests, home assignments, group assignments, viva-voce. The course teacher will
+announce the modes of evaluation and distribution of weightage for each of the assessments
+at the beginning of the course for term work assessment. Various modes of assessment for
+theory and laboratory courses along with the recommended relative weightage of various
+components are given in this section.
+5.1.1 : Modes of Evaluation for Theory Courses
+The Institute follows a continuous evaluation system. A typical theory course evaluation
+shall have term-work assessment (TA) carried out by the course teacher, Mid-semester test
+(MST) and an End-semester examination (ESE). The term-work assessment (TA) will be
+carried out by the course teacher on the basis of at least three components like attendance
+(weightage not more than 10% of TA), quiz, assignments, problems, paper or report on a
+topic, seminar and submitted by the Course Instructor before the commencement of End
+Semester Examination.
+The Mid-semester test will be conducted for forty marks. The end semester examination
+will be conducted for 100 marks. The weightage assigned to each of the evaluation
+6
+components for each course is indicated along with the scheme of evaluation in the
+curriculum. The weightages generally for term work assessment, mid-semester test and
+end-semester examination for a theory course is 20%, 30% and 50 % respectively. The
+course teacher shall continuously grade the performance of the student in various
+components of the term-work. At least five sample copies of the term-work of all courses,
+on the basis of which the term work assessment is done, has to be preserved in the
+department for a period of at least three academic years. Evaluated mid-semester
+examination answer books will be shown to the students after the end of mid-semester
+examination. If a student misses the MST due to personal illness, accident or any
+untoward incident, the student should apply to the Head of the department within five days
+of the end of the test, for permission to appear for Make-up test. Make-up test may be
+permitted by the Department Academic Committee (DAC) on genuine grounds. Make-up
+test may be conducted in the second last week of the semester on the complete syllabus of
+the course.
+Attendance in the End Semester Examination is compulsory. If a student misses the ESE
+due to personal illness, accident or any untoward incident, the student should apply to the
+Head of the department within five days of the end of the examination, for permission to
+appear for Re-examination. If the student fails to produce the necessary proofs, the student
+will be deemed to be failed in those courses and will be awarded RR grade. The student is
+then required to repeat the course. The end semester examination covers full syllabus of the
+course.
+Evaluated end-semester examination answer books will be shown to the students before
+declaration of the final result. End semester answer-books should be preserved by the
+department for a period of at least one academic year. At least five sample copies of the
+end semester answer-books of all courses, has to be preserved in the department for a
+period of at least three academic years.
+5.1.2 : Modes of Evaluation for Laboratory Courses
+The assessment in a laboratory course is based on turn-to-turn supervision of the student’s
+work, her/his performance in viva-voce examinations and group discussions, the quality of
+their work as prescribed through laboratory journals and a semester-end practical or oral
+examination. It is obligatory to maintain a laboratory journal as prescribed by the course
+teacher. The weightages are 60% and 40% for term work assessment and end-semester
+examination respectively. Some laboratory courses may have 100% or a different
+weightage for continuous in-semester evaluation.
+5.2 : Grading
+The Institute follows a relative grading system. Based on the combined performance in all
+the assessments, the student is awarded a letter grade in every course taken by her/him in a
+particular semester as per the curriculum. The grade awarded to a student depends not on
+the student’s absolute performance but performance relative to other students in her / his
+7
+class. These letter grades not only indicate a qualitative assessment of the student’s
+performance but also carry a quantitative (numeric) equivalent called the Grade Point. The
+letter grades and their equivalent grade points are given as follows:
+Grading Scheme
+Letter Grade Grade Points Indicative degree of mastery
+AA 10.0 Outstanding
+AB 9.0 Excellent
+BB 8.0 Very good
+BC 7.0 Good
+CC 6.0 Satisfactory
+CD 5.0 Average
+DD 4.0 Marginal
+FF 0.0 Very weak
+Letter Grade Explanation
+AU Audit
+PP / NP Passed / Not Passed
+A / NA Attended / Not Attended
+II Incomplete due to non-appearance in end semester examination
+on valid grounds.
+RR Fail due to lack of attendance during the semester or non-
+appearance in end semester examination without valid reason.
+Student is required to repeat the course.
+The above grades do not have any grade points associated with them.
+A student passes a credit course if the student scores any grade from AA to DD, grade FF is
+the fail grade. A few credit courses may not have associated grade points and will carry PP /
+NP grades only, NP is the fail grade.
+The II (Incomplete) grade is awarded due to non-appearance in end semester examination
+on valid grounds. The student has to appear for the end semester examination for the course
+when it is conducted next.
+The RR grade is awarded if the student fails to have minimum attendance for the classes
+(including laboratory courses) or if the student fails to attend the end-semester
+examination without having any valid reasons. Such a student has to repeat that course
+whenever it is offered next. The option of summer term is not available to the student.
+A student has to pass a course in not more than four end-semester examinations, including
+any re-examination (repeat examination) conducted for the course. If the student fails to do
+8
+so, the student has to repeat the course whenever it is offered next. All students have to
+repeat the course in classroom mode only. For courses of semester VII and semester VIII,
+any student may repeat the course in self-study mode under guidance of a teacher if
+permitted by the DAC. The weightages for term work assessment, mid-semester test and
+end-semester examination for a theory course during end semester re-examination is 20%,
+0% and 80 % respectively.
+If a student fails to appear for any of the end-semester examination due to reasons beyond
+control, the student should inform the Head of the department immediately but not later
+than five days of last examination.
+A student will have a maximum of four attempts to pass a course. For the second, third or
+fourth attempt, the student’s grade sheet will indicate “Passed in second/third/fourth
+attempt”
+The most recent grade for the course is considered for the computation of CGPA. There is
+no provision for improvement of grades in individual courses.
+5.3 : Divyang (Differently abled) students
+Rules for Divyang students will be according to the Government Resolutions (GRs) issued
+by Government of Maharashtra from time to time.
+5.4 : National Cadet Corps (NCC) students
+Rules for NCC students will be according to the Government Resolutions (GRs) issued by
+Government of Maharashtra from time to time.
+5.5 : Academic Malpractice
+Academic malpractices are severely dealt with. In case of malpractice during any
+evaluation like assignments, quizzes, tests, and examinations, or any other malpractice, the
+case is referred to Unfair Means Committee formed for the purpose. A student is suitably
+punished if the unfair means committee prima facie finds the student has resorted to
+malpractice or any other unfair means.
+9
+5.6 : Performance Indices
+5.6.1 : Semester Grade Point Average(SGPA)
+The performance of a student in a semester is indicated by a number called Semester Grade
+Point Average (SGPA). The SGPA is the weighted average of the grade points obtained in
+all the courses registered by the student during the semester. For example, if a student
+appears for five courses (Theory/labs/Projects/ etc.) in a semester with credits c , c , c , c
+1 2 3 4
+and c and her/his grade points in these courses are g , g , g , g and g respectively, then
+5 1 2 3 4 5
+the student’s SGPA is equal to:
+𝑐 𝑔 +𝑐 𝑔 +𝑐 𝑔 +𝑐 𝑔 +𝑐 𝑔
+1 1 2 2 3 3 4 4 5 5
+𝑆𝐺𝑃𝐴 =
+𝑐 +𝑐 +𝑐 +𝑐 +𝑐
+1 2 3 4 5
+The SGPA is calculated to two decimal places.
+The SGPA for any semester will take into consideration the RR/II grades awarded in that
+semester. For example if a student has failed in course 4 with FF grade, the SGPA will then
+be computed as:
+𝑐 𝑔 +𝑐 𝑔 +𝑐 𝑔 +𝑐 ∗0+𝑐 𝑔
+1 1 2 2 3 3 4 5 5
+𝑆𝐺𝑃𝐴 =
+𝑐 +𝑐 +𝑐 +𝑐 +𝑐
+1 2 3 4 5
+5.6.2 Cumulative Grade Point Average (CGPA)
+An up to date assessment of the overall performance of a student from the time the student
+entered the Institute is obtained by calculating a number called the Cumulative Grade Point
+Average (CGPA), in a manner similar to the calculation of SGPA. The CGPA therefore
+considers all the courses registered by the student, towards the minimum requirement of the
+degree the student has enrolled for, since the student entered the Institute. The CGPA is
+calculated at the end of every semester to two decimal places and is indicated in semester
+grade reports. The CGPA will take into consideration the RR/II grades awarded to the
+student in any semester.
+A CGPA of 6.75 or above will be considered as equivalent to First Class (60%).
+6 Promotion to next year for UG Programme
+A student will be promoted and allowed to register for the third year if the student has
+acquired minimum of 28 credits in second year.
+A student will be promoted and allowed to register for the fourth year if the following
+conditions are satisfied:
+1. The student has earned a minimum of 28 credits of third year and
+10
+2. The student has no course backlog or a backlog of one course in the second year.
+.
+7 CGPA to percentage conversion
+The institute follows relative grading system for evaluating student performance, hence
+grades obtained by students are relative to performance of other students in class over and
+above their own performance hence percentage equivalency cannot be certified.
+However, for the benefit of the students who require to fulfill requirements of various
+competitive examinations, higher admissions and placements, the institute has adopted the
+following model of conversion of CGPA into equivalent percentage as follows:
+Equivalent Percentage = (CGPA-0.75) X 10
+8 Eligibility for the Award of Degree and Title of the Degree
+The names of the students who satisfy below mentioned requirements shall be forwarded to
+the University of Mumbai for award of Bachelor of Technology (B Tech) (Working
+Professionals).
+The student should have studied and passed all the courses and acquired necessary number
+of credits as per the requirements of a particular degree programme and as prescribed by
+the Institute from time to time within eight years from date of first registration to
+programme.
+ The student should have paid all the Institute fees and dues including the dues of
+Department, Hostels, Library and other units.
+ The student should have obtained a CGPA of at least 4.0 at the end of the semester
+in which she/he completes all the requirements for the award of Degree;
+ No case or disciplinary action is pending against her/him.
+ Title of the degree for all students will be as follows:
+B.Tech in Civil Engineering (Working Professionals)
+9 Improvement in CGPA
+If a student has graduated, but wishes to improve her / his CGPA, she / he will have to
+appear for end semester examination of at least three courses as recommended by DAC
+(except for the project) of last two semesters, within two years of graduation by paying the
+required examination fees. Only one attempt is provided for such improvement. The result
+of such examination will be declared only if there is improvement in CGPA over earlier
+CGPA.
+11
+10. Programme duration and Re-entry option after exit
+A student who fails to graduate within six years from the date of first registration to the
+programme shall be terminated from the programme. A student who has exited from any
+BTech program at VJTI can re-enter the same program within four years of exit, such that
+the student completes the three-year BTech Program in a maximum of six years. The re-
+entry option may be exercised only once during the duration of the BTech Programme.
+Amendments made to these rules by Academic Council of VJTI from time to time will
+be binding on the students.
+12
