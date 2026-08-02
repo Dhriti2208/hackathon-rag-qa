@@ -4,3 +4,9 @@ faiss-cpu
 google-generativeai
 python-dotenv
 pdfplumber
+pytesseract
+pdf2image
+pillow
+rank-bm25
+langdetect
+pandas

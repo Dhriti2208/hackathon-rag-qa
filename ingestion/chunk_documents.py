@@ -1,11 +1,8 @@
 """
 STEP 2: Reads text files and breaks them into small chunks (pieces).
-Small chunks help the AI find the exact relevant part of a document
-instead of searching through one giant blob of text.
 
 How to use:
 1. Make sure .txt files exist inside "data/raw_text" folder
-   (either from pdf_to_text.py, or sample/dummy files for testing)
 2. Run this file
 3. It saves all chunks into "data/chunks.json"
 
@@ -18,8 +15,8 @@ import json
 RAW_TEXT_FOLDER = "data/raw_text"
 OUTPUT_FILE = "data/chunks.json"
 
-CHUNK_SIZE = 1000      # characters per chunk (kept simple, not token-based)
-CHUNK_OVERLAP = 150    # overlap so we don't lose context at chunk boundaries
+CHUNK_SIZE = 1000
+CHUNK_OVERLAP = 150
 
 
 def chunk_text(text, chunk_size=CHUNK_SIZE, overlap=CHUNK_OVERLAP):
