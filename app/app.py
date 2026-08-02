@@ -246,6 +246,17 @@ div[data-baseweb="popover"] li:hover {{ background-color: {GOLD}22 !important; }
 }}
 [data-testid="stSidebar"] .stButton button:hover {{ border-color: {GOLD}; background-color: rgba(185,138,46,0.12); }}
 
+/* Button labels render as a nested <p>, which the broad text-contrast fix
+   above was overriding with dark ink — pin them back to the button's own text color */
+.stButton button p, .stButton button [data-testid="stMarkdownContainer"] p {{
+    color: {GOLD_LIGHT} !important;
+}}
+[data-testid="stSidebar"] .stButton button p,
+[data-testid="stSidebar"] .stButton button [data-testid="stMarkdownContainer"] p {{
+    color: #EDE7D8 !important;
+}}
+
+
 /* Chat message cards — quiet document-card feel, gold left rule on replies */
 [data-testid="stChatMessage"] {{
     background-color: {CARD}; border-radius: 8px; padding: 12px 14px;
