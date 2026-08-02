@@ -24,119 +24,327 @@ from rag_engine.rag_pipeline import (
 )
 from auth import register_user, login_user, save_history, load_history, save_feedback
 
-st.set_page_config(page_title="HTE Portal", page_icon="🎓", layout="wide")
+st.set_page_config(page_title="HTE Portal", page_icon="🏛️", layout="wide")
 
 # ----------------------------
-# THEME (single, polished, ScholarStack-inspired: white + orange accent + navy sidebar)
+# DARK MODE TOGGLE
+# Our custom palette hardcodes colors (needed for the seal/paper identity to
+# render consistently), which means Streamlit's own light/dark theme menu has
+# nothing left to switch. So we run our own toggle and branch the palette on it.
 # ----------------------------
-ACCENT = "#FF6B4A"
-ACCENT_DARK = "#E85A3A"
-SIDEBAR_BG = "#14151F"
-SIDEBAR_TEXT = "#E8E9ED"
-PANEL_SOFT = "#F1EEFB"
-BORDER = "#E2E5EA"
-TEXT_DARK = "#1A1A2E"
-TEXT_MUTED = "#6B7280"
+if "dark_mode" not in st.session_state:
+    st.session_state.dark_mode = False
+
+with st.sidebar:
+    st.toggle("🌙  Dark mode", key="dark_mode")
+
+# ----------------------------
+# THEME — "Rajmudra": an official-seal identity for a government
+# knowledge portal. Deep archive-navy + verification-gold, on a warm
+# paper ground, with a Fraunces/Inter/IBM Plex Mono type system.
+# Signature element: a circular gold "verification seal" that stands
+# in for the confidence score on every grounded answer.
+# ----------------------------
+NAVY = "#0B1E37"        # authority — sidebar, headings, primary buttons
+NAVY_MID = "#15335C"    # hover / secondary panels
+GOLD = "#B98A2E"        # accent — the seal, rules, focus states
+GOLD_LIGHT = "#E7C77E"  # button text on navy, highlights
+
+if st.session_state.dark_mode:
+    PAPER = "#11151C"       # main ground — near-black, warm-neutral
+    CARD = "#1A2028"        # message / panel surface
+    INK = "#EDE7D8"         # primary text (light, on the dark ground)
+    MUTED = "#9C9585"       # secondary text
+    BORDER = "#333B47"      # hairline border
+    MAROON = "#C97078"      # conflict / error accent, lifted for dark contrast
+else:
+    PAPER = "#F6F3EC"       # main ground — warm, not the cliché cream+terracotta pair
+    CARD = "#FCFBF8"        # message / panel surface, slightly lighter than PAPER
+    INK = "#1C2431"         # primary text
+    MUTED = "#6B6357"       # secondary text (warm gray, ties to paper)
+    BORDER = "#E1DACB"      # warm hairline border
+    MAROON = "#7A2E33"      # conflict / error accent — replaces generic red
 
 APP_CSS = f"""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
 html, body, [class*="css"] {{ font-family: 'Inter', sans-serif; }}
 
-.stApp {{ background-color: #ffffff; color: {TEXT_DARK}; }}
-
-/* Sidebar - dark navy like ScholarStack's dashboard nav */
-[data-testid="stSidebar"] {{ background-color: {SIDEBAR_BG}; }}
-[data-testid="stSidebar"] * {{ color: {SIDEBAR_TEXT} !important; }}
-
-/* Fix: selectbox/dropdown inside sidebar needs its own background so text isn't invisible */
-[data-testid="stSidebar"] [data-baseweb="select"] > div {{
-    background-color: #1F2130 !important;
-    border: 1px solid rgba(255,255,255,0.15) !important;
-    color: {SIDEBAR_TEXT} !important;
+/* Warm paper ground — kept light so reruns repaint instantly and don't flash */
+html, body {{ background-color: {PAPER}; }}
+.stApp {{
+    background-color: {PAPER}; color: {INK};
+    background-image: radial-gradient(circle at 100% 0%, rgba(185,138,46,0.08), transparent 45%);
+    transition: background-color 0.1s ease;
 }}
-[data-testid="stSidebar"] [data-baseweb="select"] span {{ color: {SIDEBAR_TEXT} !important; }}
-[data-testid="stSidebar"] svg {{ fill: {SIDEBAR_TEXT} !important; }}
-[data-testid="stSidebar"] hr {{ border-color: rgba(255,255,255,0.12); }}
+[data-testid="stAppViewContainer"] > .main {{ padding-top: 1.2rem; }}
 
-/* Simple top brand bar (replaces heavy gradient banner) */
+/* Hide Streamlit's dev-mode chrome (Deploy/Stop/hamburger) — it ignores our
+   theme and looks out of place on a government portal */
+header[data-testid="stHeader"] {{ display: none !important; }}
+#MainMenu {{ visibility: hidden !important; }}
+footer {{ visibility: hidden !important; }}
+
+::selection {{ background: {GOLD}55; }}
+::-webkit-scrollbar {{ width: 10px; height: 10px; }}
+::-webkit-scrollbar-thumb {{ background: {BORDER}; border-radius: 8px; }}
+::-webkit-scrollbar-thumb:hover {{ background: {GOLD}; }}
+
+/* Force real text color everywhere content renders. Streamlit's own markdown/
+   expander/dataframe text ships a fixed gray that only happened to look right
+   on a light background — on the dark palette it went near-invisible. */
+[data-testid="stMarkdownContainer"] p,
+[data-testid="stMarkdownContainer"] li,
+[data-testid="stMarkdownContainer"] h1,
+[data-testid="stMarkdownContainer"] h2,
+[data-testid="stMarkdownContainer"] h3,
+[data-testid="stMarkdownContainer"] h4,
+[data-testid="stExpander"] p,
+[data-testid="stExpander"] li,
+[data-testid="stExpander"] summary,
+[data-testid="stAlert"] p,
+[data-testid="stAlert"] li,
+label, .stSelectbox label, .stTextInput label {{
+    color: {INK} !important;
+}}
+[data-testid="stCaptionContainer"] p, .stCaption p {{ color: {MUTED} !important; }}
+[data-testid="stDataFrame"] * {{ color: {INK} !important; }}
+[data-testid="stExpander"] svg {{ fill: {INK} !important; }}
+
+/* Re-affirm our own components' colors at higher specificity so the broad
+   rule above doesn't swallow them */
+[data-testid="stMarkdownContainer"] .cite-chip {{ color: {NAVY} !important; }}
+[data-testid="stMarkdownContainer"] .seal-pct {{ color: {NAVY} !important; }}
+[data-testid="stMarkdownContainer"] .seal-label {{ color: {GOLD} !important; }}
+[data-testid="stMarkdownContainer"] .seal-meta .m1 {{ color: {MUTED} !important; }}
+[data-testid="stMarkdownContainer"] .seal-meta .m1 b {{ color: {INK} !important; }}
+[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p,
+[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] li,
+[data-testid="stSidebar"] label {{ color: #EDE7D8 !important; }}
+
+/* Sidebar — deep archive navy with a gold hairline edge */
+[data-testid="stSidebar"] {{
+    background-color: {NAVY};
+    border-right: 1px solid {GOLD}33;
+}}
+[data-testid="stSidebar"] * {{ color: #EDE7D8 !important; }}
+
+/* Selectbox control — force navy on every nested BaseWeb layer, since the
+   visible box is several levels deep and inherits an inline white fill */
+[data-testid="stSidebar"] [data-testid="stSelectbox"] > div > div {{
+    background-color: {NAVY_MID} !important;
+    border: 1px solid {GOLD}55 !important;
+    border-radius: 6px !important;
+}}
+[data-testid="stSidebar"] [data-testid="stSelectbox"] div[data-baseweb="select"] * {{
+    background-color: transparent !important;
+    color: #EDE7D8 !important;
+    -webkit-text-fill-color: #EDE7D8 !important;
+}}
+[data-testid="stSidebar"] [data-testid="stSelectbox"] svg {{ fill: #EDE7D8 !important; }}
+[data-testid="stSidebar"] svg {{ fill: #EDE7D8 !important; }}
+[data-testid="stSidebar"] hr {{ border-color: {GOLD}33; }}
+[data-testid="stSidebar"] .stCaption, [data-testid="stSidebar"] small {{ color: #B9B0A0 !important; }}
+
+/* Sidebar conversation history — count badge vs. individual question rows,
+   styled distinctly so they don't read as the same repeated element */
+.hist-header {{
+    display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;
+}}
+.hist-header .label {{ font-size: 11px; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase; color: #B9B0A0; }}
+.hist-header .count {{
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600;
+    color: {NAVY}; background: {GOLD_LIGHT}; border-radius: 20px; padding: 1px 8px;
+}}
+.hist-item {{
+    display: flex; align-items: baseline; gap: 7px; padding: 5px 2px;
+    border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 12.5px; color: #C9C2B3 !important;
+}}
+.hist-item .tick {{ color: {GOLD}; flex-shrink: 0; }}
+
+/* Popover list that opens on click renders outside the sidebar in a portal —
+   theme it separately so options stay readable */
+div[data-baseweb="popover"] li {{ background-color: {CARD} !important; color: {INK} !important; }}
+div[data-baseweb="popover"] li:hover {{ background-color: {GOLD}22 !important; }}
+
+
+/* Sidebar eyebrow labels */
+.sb-eyebrow {{
+    font-family: 'Inter', sans-serif; font-size: 10.5px; font-weight: 600;
+    letter-spacing: 1.6px; text-transform: uppercase; color: {GOLD_LIGHT} !important;
+    margin-bottom: 2px;
+}}
+
+/* Brand bar — seal mark + Fraunces wordmark + eyebrow */
 .brand-bar {{
-    display: flex; align-items: center; gap: 10px;
-    padding: 14px 4px 18px 4px; border-bottom: 1px solid {BORDER}; margin-bottom: 24px;
+    display: flex; align-items: center; gap: 14px;
+    padding: 6px 2px 22px 2px; border-bottom: 1px solid {BORDER}; margin-bottom: 26px;
 }}
-.brand-bar .logo {{ font-size: 26px; }}
-.brand-bar .name {{ font-size: 22px; font-weight: 800; color: {TEXT_DARK}; }}
-.brand-bar .tagline {{ font-size: 13px; color: {TEXT_MUTED}; margin-left: 8px; }}
+.brand-seal {{
+    width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
+    background: radial-gradient(circle at 35% 30%, {GOLD_LIGHT}, {GOLD} 60%, #8C6A22 100%);
+    border: 1px solid {GOLD};
+    box-shadow: 0 0 0 3px {PAPER}, 0 0 0 4px {BORDER};
+    display: flex; align-items: center; justify-content: center;
+}}
+.brand-seal span {{ font-family: 'Fraunces', serif; font-weight: 600; font-size: 17px; color: {NAVY}; }}
+.brand-bar .brand-text {{ display: flex; flex-direction: column; gap: 2px; }}
+.brand-bar .eyebrow {{
+    font-size: 10.5px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; color: {GOLD};
+}}
+.brand-bar .name {{ font-family: 'Fraunces', serif; font-size: 25px; font-weight: 600; color: {INK}; line-height: 1.1; }}
+.brand-bar .tagline {{ font-size: 13px; color: {MUTED}; font-style: italic; }}
 
 /* Section headers */
-.section-title {{ font-size: 26px; font-weight: 800; color: {TEXT_DARK}; margin-bottom: 4px; }}
-.section-sub {{ font-size: 14px; color: {TEXT_MUTED}; margin-bottom: 20px; }}
+.section-title {{
+    font-family: 'Fraunces', serif; font-size: 30px; font-weight: 600; color: {INK}; margin-bottom: 6px;
+}}
+.section-sub {{
+    font-size: 14px; color: {MUTED}; margin-bottom: 22px; padding-left: 12px; border-left: 2.5px solid {GOLD};
+}}
 
-/* Text inputs - clean thin border like ScholarStack forms */
+/* Text inputs */
 .stTextInput input {{
-    border-radius: 8px !important;
+    border-radius: 6px !important;
     border: 1.5px solid {BORDER} !important;
     padding: 12px 14px !important;
-    background-color: #ffffff !important;
-    color: {TEXT_DARK} !important;
-    transition: border-color 0.15s ease;
+    background-color: {CARD} !important;
+    color: {INK} !important;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }}
 .stTextInput input:focus {{
-    border-color: {ACCENT} !important;
-    box-shadow: 0 0 0 3px {ACCENT}22 !important;
+    border-color: {GOLD} !important;
+    box-shadow: 0 0 0 3px {GOLD}26 !important;
 }}
-.stTextInput label {{ color: {TEXT_DARK} !important; font-weight: 500; font-size: 13px; }}
+.stTextInput label {{ color: {INK} !important; font-weight: 500; font-size: 13px; }}
 
-/* Tabs - clean underline style, not boxy */
-.stTabs [data-baseweb="tab-list"] {{ gap: 28px; border-bottom: 1px solid {BORDER}; }}
+/* Tabs — gold underline, tracked small caps */
+.stTabs [data-baseweb="tab-list"] {{ gap: 30px; border-bottom: 1px solid {BORDER}; }}
 .stTabs [data-baseweb="tab"] {{
-    height: 42px; background-color: transparent !important; border-radius: 0 !important;
-    padding: 0px 2px !important; font-weight: 600; color: {TEXT_MUTED} !important;
+    height: 44px; background-color: transparent !important; border-radius: 0 !important;
+    padding: 0px 2px !important; font-weight: 600; font-size: 13.5px;
+    letter-spacing: 0.3px; color: {MUTED} !important;
 }}
 .stTabs [aria-selected="true"] {{
-    color: {ACCENT} !important; border-bottom: 2.5px solid {ACCENT} !important;
+    color: {NAVY} !important; border-bottom: 2.5px solid {GOLD} !important;
     background-color: transparent !important;
 }}
 
-/* Primary buttons - solid orange, ScholarStack style */
+/* Primary buttons — navy with gold ink, small-caps tracking, official tone */
 .stButton button {{
-    border-radius: 8px; font-weight: 600; border: none;
-    background-color: {ACCENT}; color: white;
-    transition: background-color 0.15s ease;
+    border-radius: 6px; font-weight: 600; font-size: 13.5px;
+    letter-spacing: 0.4px; border: 1px solid {NAVY};
+    background-color: {NAVY}; color: {GOLD_LIGHT} !important;
+    transition: background-color 0.15s ease, transform 0.1s ease;
 }}
-.stButton button:hover {{ background-color: {ACCENT_DARK}; color: white; }}
-.stButton button:focus {{ color: white !important; }}
+.stButton button:hover {{ background-color: {NAVY_MID}; color: {GOLD_LIGHT} !important; transform: translateY(-1px); }}
+.stButton button:active {{ transform: translateY(0); }}
+.stButton button:focus {{ color: {GOLD_LIGHT} !important; }}
 [data-testid="stSidebar"] .stButton button {{
-    background-color: transparent; border: 1px solid rgba(255,255,255,0.2); color: {SIDEBAR_TEXT} !important;
+    background-color: transparent; border: 1px solid {GOLD}55; color: #EDE7D8 !important;
 }}
-[data-testid="stSidebar"] .stButton button:hover {{ border-color: {ACCENT}; background-color: rgba(255,107,74,0.1); }}
+[data-testid="stSidebar"] .stButton button:hover {{ border-color: {GOLD}; background-color: rgba(185,138,46,0.12); }}
 
-/* Chat message cards - soft, minimal */
+/* Chat message cards — quiet document-card feel, gold left rule on replies */
 [data-testid="stChatMessage"] {{
-    background-color: #FAFAFB; border-radius: 12px; padding: 10px 6px;
-    margin-bottom: 10px; border: 1px solid {BORDER};
+    background-color: {CARD}; border-radius: 8px; padding: 12px 14px;
+    margin-bottom: 12px; border: 1px solid {BORDER};
+    box-shadow: 0 1px 2px rgba(11,30,55,0.04);
+}}
+[data-testid="stChatMessageAvatarAssistant"] ~ div [data-testid="stChatMessage"],
+[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarAssistant"]) {{
+    border-left: 3px solid {GOLD};
 }}
 
 /* Expanders */
-div[data-testid="stExpander"] {{ border-radius: 10px; border: 1px solid {BORDER}; }}
+div[data-testid="stExpander"] {{ border-radius: 8px; border: 1px solid {BORDER}; background-color: {CARD}; }}
 
 /* Dataframe / Browse Documents table */
-.stDataFrame thead tr th {{ background-color: {TEXT_DARK} !important; color: white !important; font-weight: 700 !important; }}
-.stDataFrame {{ border-radius: 10px; overflow: hidden; border: 1px solid {BORDER}; }}
+.stDataFrame thead tr th {{
+    background-color: {NAVY} !important; color: {GOLD_LIGHT} !important; font-weight: 600 !important;
+    text-transform: uppercase; letter-spacing: 0.5px; font-size: 12px !important;
+}}
+.stDataFrame {{ border-radius: 8px; overflow: hidden; border: 1px solid {BORDER}; }}
 
-/* Progress bar (confidence score) - orange fill */
-.stProgress > div > div {{ background-color: {ACCENT} !important; border-radius: 6px; }}
+/* Progress bar fallback */
+.stProgress > div > div {{ background-color: {GOLD} !important; border-radius: 6px; }}
+
+/* Alerts — recolored to the palette instead of stock red/orange/blue */
+[data-testid="stAlertContentError"], div[data-testid="stAlert"]:has([data-testid="stAlertContentError"]) {{
+    background-color: {MAROON}14 !important; border: 1px solid {MAROON}55 !important; border-radius: 8px !important;
+}}
+[data-testid="stAlertContentWarning"], div[data-testid="stAlert"]:has([data-testid="stAlertContentWarning"]) {{
+    background-color: {GOLD}17 !important; border: 1px solid {GOLD}66 !important; border-radius: 8px !important;
+}}
+[data-testid="stAlertContentInfo"], div[data-testid="stAlert"]:has([data-testid="stAlertContentInfo"]) {{
+    background-color: {NAVY}0F !important; border: 1px solid {NAVY}44 !important; border-radius: 8px !important;
+}}
+div[data-testid="stAlert"] p {{ color: {INK} !important; }}
+
+/* --- Verification seal (replaces the plain confidence progress bar) --- */
+.seal-row {{ display: flex; align-items: center; gap: 14px; margin: 6px 0 10px 0; }}
+.seal-ring {{
+    width: 60px; height: 60px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 1px 3px rgba(11,30,55,0.15);
+}}
+.seal-inner {{
+    width: 48px; height: 48px; border-radius: 50%; background: {CARD};
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    border: 1px solid {BORDER};
+}}
+.seal-pct {{ font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 14px; color: {NAVY}; line-height: 1; }}
+.seal-label {{ font-size: 7px; font-weight: 600; letter-spacing: 1px; color: {GOLD}; margin-top: 2px; }}
+.seal-meta {{ display: flex; flex-direction: column; gap: 2px; }}
+.seal-meta .m1 {{ font-size: 12.5px; color: {MUTED}; }}
+.seal-meta .m1 b {{ color: {INK}; }}
+
+/* Source / citation chips */
+.cite-chip {{
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: {NAVY};
+    background: {GOLD}14; border: 1px solid {GOLD}44; border-radius: 20px;
+    padding: 2px 9px; margin: 2px 4px 2px 0;
+}}
 
 /* Login split panel */
 .auth-illustration {{
-    background-color: {PANEL_SOFT}; border-radius: 16px; height: 480px;
+    background-color: {CARD}; border-radius: 14px; height: 480px;
+    border: 1px solid {BORDER};
     display: flex; align-items: center; justify-content: center; flex-direction: column;
 }}
-.auth-illustration svg {{ margin-bottom: 20px; }}
-.auth-illustration .caption {{ color: {TEXT_MUTED}; font-size: 15px; text-align: center; padding: 0 30px; }}
+.auth-illustration svg {{ margin-bottom: 22px; }}
+.auth-illustration .caption {{ color: {MUTED}; font-size: 14.5px; text-align: center; padding: 0 34px; line-height: 1.6; }}
+.auth-illustration .caption b {{ color: {INK}; }}
 </style>
 """
 st.markdown(APP_CSS, unsafe_allow_html=True)
+
+
+def render_seal(confidence, sublabel=None):
+    """Render the signature 'verification seal' badge for a grounded answer,
+    replacing a plain progress bar with a stamp-style confidence indicator."""
+    conf = max(0, min(100, confidence))
+    deg = conf * 3.6
+    meta = f'<div class="m1">{sublabel}</div>' if sublabel else ""
+    st.markdown(
+        f"""
+        <div class="seal-row">
+            <div class="seal-ring" style="background: conic-gradient({GOLD} {deg}deg, {BORDER} {deg}deg);">
+                <div class="seal-inner">
+                    <span class="seal-pct">{conf}%</span>
+                    <span class="seal-label">VERIFIED</span>
+                </div>
+            </div>
+            <div class="seal-meta">
+                <div class="m1"><b>Answer confidence</b> — grounded in cited source documents</div>
+                {meta}
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
 # ----------------------------
 # LOGIN / REGISTER SCREEN
@@ -147,9 +355,12 @@ if "logged_in" not in st.session_state:
 
 if not st.session_state.logged_in:
     st.markdown(
-        '<div class="brand-bar"><span class="logo">🎓</span>'
+        '<div class="brand-bar">'
+        '<div class="brand-seal"><span>HTE</span></div>'
+        '<div class="brand-text">'
+        '<span class="eyebrow">Higher &amp; Technical Education Dept. · Maharashtra</span>'
         '<span class="name">HTE Portal</span>'
-        '<span class="tagline">AI-Powered Decision Support</span></div>',
+        '</div></div>',
         unsafe_allow_html=True
     )
 
@@ -157,27 +368,37 @@ if not st.session_state.logged_in:
 
     with illustration_col:
         svg_illustration = """
-        <svg width="220" height="220" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="30" cy="40" r="10" fill="#FF6B4A" opacity="0.15"/>
-            <circle cx="195" cy="60" r="14" fill="#8B7FE8" opacity="0.2"/>
-            <circle cx="190" cy="180" r="8" fill="#FF6B4A" opacity="0.25"/>
-            <circle cx="20" cy="180" r="6" fill="#8B7FE8" opacity="0.3"/>
-            <rect x="55" y="30" width="110" height="140" rx="12" fill="#FFFFFF" stroke="#E2E5EA" stroke-width="2"/>
-            <rect x="72" y="55" width="76" height="8" rx="4" fill="#14151F" opacity="0.85"/>
-            <rect x="72" y="75" width="60" height="6" rx="3" fill="#6B7280" opacity="0.5"/>
-            <rect x="72" y="90" width="66" height="6" rx="3" fill="#6B7280" opacity="0.5"/>
-            <rect x="72" y="105" width="50" height="6" rx="3" fill="#6B7280" opacity="0.5"/>
-            <rect x="72" y="128" width="76" height="6" rx="3" fill="#6B7280" opacity="0.3"/>
-            <rect x="72" y="142" width="55" height="6" rx="3" fill="#6B7280" opacity="0.3"/>
-            <circle cx="155" cy="145" r="28" fill="#FF6B4A"/>
-            <path d="M142 145 L151 154 L169 134" stroke="white" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="40" y="185" width="140" height="8" rx="2" fill="#14151F" opacity="0.15"/>
+        <svg width="220" height="230" viewBox="0 0 220 230" xmlns="http://www.w3.org/2000/svg">
+            <rect x="34" y="16" width="122" height="164" rx="6" fill="#FCFBF8" stroke="#0B1E37" stroke-width="1.5"/>
+            <rect x="34" y="16" width="122" height="10" rx="6" fill="#0B1E37"/>
+            <rect x="50" y="42" width="86" height="7" rx="3.5" fill="#0B1E37" opacity="0.85"/>
+            <rect x="50" y="60" width="70" height="5" rx="2.5" fill="#6B6357" opacity="0.55"/>
+            <rect x="50" y="73" width="76" height="5" rx="2.5" fill="#6B6357" opacity="0.55"/>
+            <rect x="50" y="86" width="58" height="5" rx="2.5" fill="#6B6357" opacity="0.55"/>
+            <rect x="50" y="106" width="76" height="5" rx="2.5" fill="#6B6357" opacity="0.35"/>
+            <rect x="50" y="119" width="64" height="5" rx="2.5" fill="#6B6357" opacity="0.35"/>
+            <rect x="50" y="132" width="70" height="5" rx="2.5" fill="#6B6357" opacity="0.35"/>
+            <rect x="50" y="152" width="40" height="5" rx="2.5" fill="#6B6357" opacity="0.3"/>
+            <g transform="translate(150,150)">
+                <circle r="42" fill="none" stroke="#B98A2E" stroke-width="1.6" stroke-dasharray="3.4 4.2" opacity="0.8"/>
+                <circle r="34" fill="#FCFBF8" stroke="#B98A2E" stroke-width="2"/>
+                <circle r="34" fill="url(#sealGrad)" opacity="0.16"/>
+                <path d="M-14 1 L-4 11 L16 -12" stroke="#0B1E37" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <text x="0" y="-46" text-anchor="middle" font-family="Inter, sans-serif" font-size="7.5" font-weight="700" letter-spacing="1.5" fill="#7A6A3E">VERIFIED</text>
+            </g>
+            <defs>
+                <radialGradient id="sealGrad" cx="35%" cy="30%" r="70%">
+                    <stop offset="0%" stop-color="#E7C77E"/>
+                    <stop offset="100%" stop-color="#B98A2E"/>
+                </radialGradient>
+            </defs>
         </svg>
         """
         st.markdown(
             f'<div class="auth-illustration">{svg_illustration}'
-            '<div class="caption">Ask questions in English, Hindi, or Marathi and get '
-            'source-grounded answers from official HTE department documents.</div>'
+            '<div class="caption">Ask in <b>English, Hindi or Marathi</b> and get '
+            'answers grounded in official Government Resolutions, circulars and orders — '
+            'every response carries its sources.</div>'
             '</div>',
             unsafe_allow_html=True
         )
@@ -240,7 +461,11 @@ def find_source_pdf(source_txt_name):
 # SIDEBAR
 # ----------------------------
 with st.sidebar:
-    st.markdown('<span style="font-size:22px; font-weight:800;">🎓 HTE Portal</span>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="sb-eyebrow">Government of Maharashtra</div>'
+        '<span style="font-family:\'Fraunces\',serif; font-size:23px; font-weight:600;">HTE Portal</span>',
+        unsafe_allow_html=True
+    )
     st.caption("AI-Powered Decision Support")
 
     st.write(f"👤 Logged in as: **{st.session_state.username}**")
@@ -267,10 +492,16 @@ with st.sidebar:
     st.divider()
     user_questions = [m["content"] for m in st.session_state.messages if m["role"] == "user"]
     if user_questions:
-        st.caption(f"🗨️ {len(user_questions)} question(s) in this conversation")
+        st.markdown(
+            f'<div class="hist-header"><span class="label">Conversation History</span>'
+            f'<span class="count">{len(user_questions)}</span></div>',
+            unsafe_allow_html=True,
+        )
+        rows = ""
         for q in reversed(user_questions[-8:]):
-            short_title = q[:30] + "..." if len(q) > 30 else q
-            st.caption(f"💬 {short_title}")
+            short_title = q[:34] + "…" if len(q) > 34 else q
+            rows += f'<div class="hist-item"><span class="tick">›</span><span>{short_title}</span></div>'
+        st.markdown(rows, unsafe_allow_html=True)
 
 # ----------------------------
 # MAIN TABS
@@ -292,11 +523,8 @@ with tab_chat:
 
     def render_answer_extras(message, idx, is_new=False):
         conf = message.get("confidence", 0)
-        st.caption(f"Overall Confidence: **{conf}%**")
-        st.progress(conf / 100.0)
-
-        if message.get("response_time"):
-            st.caption(f"⏱️ Answered in {message['response_time']:.1f}s")
+        time_note = f"Answered in {message['response_time']:.1f}s" if message.get("response_time") else None
+        render_seal(conf, sublabel=time_note)
 
         if message.get("conflict_detected"):
             st.error(f"⚠️ Conflicting information found across sources:\n\n{message.get('conflict_explanation', '')}")
@@ -308,10 +536,14 @@ with tab_chat:
         if message.get("per_source_scores") or message.get("related_documents"):
             with st.expander("📚 Sources & Related Documents"):
                 if message.get("per_source_scores"):
-                    st.markdown("**Cited Sources (with relevance score):**")
+                    st.markdown("**Cited Sources**")
                     for item in message["per_source_scores"]:
                         col1, col2 = st.columns([4, 1])
-                        col1.write(f"- **{item.get('title', item['source'])}** — {item['relevance_score']}% relevant")
+                        col1.markdown(
+                            f'<div style="margin-bottom:4px;">{item.get("title", item["source"])} '
+                            f'<span class="cite-chip">{item["relevance_score"]}% match</span></div>',
+                            unsafe_allow_html=True,
+                        )
                         pdf_path = find_source_pdf(item["source"])
                         if pdf_path:
                             with open(pdf_path, "rb") as f:
@@ -397,8 +629,8 @@ with tab_chat:
 # TAB 2: SUMMARIZE DOCUMENT
 # ==========================================
 with tab_summarize:
-    st.header("📄 Summarize Government Document")
-    st.write("Get an easy-to-understand summary of any document in the system.")
+    st.markdown('<div class="section-title">Summarize a Document</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-sub">Get a plain-language summary of any Government Resolution, circular or order in the repository.</div>', unsafe_allow_html=True)
 
     all_docs = get_all_document_names()
 
@@ -424,8 +656,8 @@ with tab_summarize:
 # TAB 3: COMPARE DOCUMENTS
 # ==========================================
 with tab_compare:
-    st.header("⚖️ Compare Documents")
-    st.write("Compare two Government documents and highlight important differences, amendments, or superseded rules.")
+    st.markdown('<div class="section-title">Compare Documents</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-sub">Set two Government documents side by side to surface differences, amendments, or superseded rules.</div>', unsafe_allow_html=True)
 
     all_docs_compare = get_all_document_names()
 
@@ -451,8 +683,8 @@ with tab_compare:
 # TAB 4: BROWSE DOCUMENTS
 # ==========================================
 with tab_browse:
-    st.header("📚 Browse All Documents")
-    st.write("See every document in the system with its metadata.")
+    st.markdown('<div class="section-title">Browse the Repository</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-sub">Every authenticated document in the system, with its metadata, in one register.</div>', unsafe_allow_html=True)
 
     browse_list = get_documents_browse_list()
 
