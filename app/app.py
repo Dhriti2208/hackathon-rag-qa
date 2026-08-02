@@ -24,103 +24,119 @@ from rag_engine.rag_pipeline import (
 )
 from auth import register_user, login_user, save_history, load_history, save_feedback
 
-st.set_page_config(page_title="HTE Portal", page_icon="🏛️", layout="wide")
+st.set_page_config(page_title="HTE Portal", page_icon="🎓", layout="wide")
 
-if "theme" not in st.session_state:
-    st.session_state.theme = "Light"
+# ----------------------------
+# THEME (single, polished, ScholarStack-inspired: white + orange accent + navy sidebar)
+# ----------------------------
+ACCENT = "#FF6B4A"
+ACCENT_DARK = "#E85A3A"
+SIDEBAR_BG = "#14151F"
+SIDEBAR_TEXT = "#E8E9ED"
+PANEL_SOFT = "#F1EEFB"
+BORDER = "#E2E5EA"
+TEXT_DARK = "#1A1A2E"
+TEXT_MUTED = "#6B7280"
 
+APP_CSS = f"""
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+html, body, [class*="css"] {{ font-family: 'Inter', sans-serif; }}
 
-def get_theme_css(theme):
-    if theme == "Dark":
-        bg, card_bg, text, accent, sidebar_bg = "#0f1729", "#1a2332", "#e8edf5", "#4a7fd4", "#0a1120"
-        bg_end = "#131c30"
-    else:
-        bg, card_bg, text, accent, sidebar_bg = "#ffffff", "#f7f9fc", "#1a1a1a", "#1a3a6e", "#eef2f8"
-        bg_end = "#eef2f8"
+.stApp {{ background-color: #ffffff; color: {TEXT_DARK}; }}
 
-    return f"""
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
-    html, body, [class*="css"] {{ font-family: 'Inter', sans-serif; }}
-    .stApp {{
-        background: linear-gradient(180deg, {bg} 0%, {bg_end} 100%);
-        color: {text};
-    }}
-    [data-testid="stSidebar"] {{ background-color: {sidebar_bg}; border-right: 2px solid {accent}; }}
-    [data-testid="stSidebar"] * {{ color: {text} !important; }}
+/* Sidebar - dark navy like ScholarStack's dashboard nav */
+[data-testid="stSidebar"] {{ background-color: {SIDEBAR_BG}; }}
+[data-testid="stSidebar"] * {{ color: {SIDEBAR_TEXT} !important; }}
 
-    /* Gradient header banner */
-    .hte-header {{
-        background: linear-gradient(135deg, {accent} 0%, #2c5aa0 60%, #3a6bc4 100%);
-        padding: 32px 36px; border-radius: 16px; margin-bottom: 28px; color: white;
-        box-shadow: 0 8px 24px rgba(26,58,110,0.25);
-    }}
-    .hte-header h1 {{ color: white !important; margin: 0; font-size: 32px; font-weight: 800; }}
-    .hte-header p {{ color: #dce6f5 !important; margin-top: 8px; font-size: 15px; }}
+/* Fix: selectbox/dropdown inside sidebar needs its own background so text isn't invisible */
+[data-testid="stSidebar"] [data-baseweb="select"] > div {{
+    background-color: #1F2130 !important;
+    border: 1px solid rgba(255,255,255,0.15) !important;
+    color: {SIDEBAR_TEXT} !important;
+}}
+[data-testid="stSidebar"] [data-baseweb="select"] span {{ color: {SIDEBAR_TEXT} !important; }}
+[data-testid="stSidebar"] svg {{ fill: {SIDEBAR_TEXT} !important; }}
+[data-testid="stSidebar"] hr {{ border-color: rgba(255,255,255,0.12); }}
 
-    /* Login/register card - centered, elevated */
-    .login-card {{
-        background-color: {card_bg}; border-radius: 16px; padding: 8px 8px 24px 8px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid rgba(128,128,128,0.12);
-    }}
+/* Simple top brand bar (replaces heavy gradient banner) */
+.brand-bar {{
+    display: flex; align-items: center; gap: 10px;
+    padding: 14px 4px 18px 4px; border-bottom: 1px solid {BORDER}; margin-bottom: 24px;
+}}
+.brand-bar .logo {{ font-size: 26px; }}
+.brand-bar .name {{ font-size: 22px; font-weight: 800; color: {TEXT_DARK}; }}
+.brand-bar .tagline {{ font-size: 13px; color: {TEXT_MUTED}; margin-left: 8px; }}
 
-    /* Styled text inputs */
-    .stTextInput input {{
-        border-radius: 10px !important;
-        border: 1.5px solid rgba(128,128,128,0.25) !important;
-        padding: 12px 14px !important;
-        transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }}
-    .stTextInput input:focus {{
-        border-color: {accent} !important;
-        box-shadow: 0 0 0 3px {accent}2a !important;
-    }}
+/* Section headers */
+.section-title {{ font-size: 26px; font-weight: 800; color: {TEXT_DARK}; margin-bottom: 4px; }}
+.section-sub {{ font-size: 14px; color: {TEXT_MUTED}; margin-bottom: 20px; }}
 
-    /* Pill-style tabs for login/register and main nav */
-    .stTabs [data-baseweb="tab-list"] {{ gap: 10px; }}
-    .stTabs [data-baseweb="tab"] {{
-        height: 44px; white-space: pre-wrap; border-radius: 22px !important;
-        padding: 0px 22px !important; font-weight: 600;
-    }}
-    .stTabs [aria-selected="true"] {{
-        background-color: {accent} !important; color: white !important;
-        box-shadow: 0 3px 10px {accent}55;
-    }}
+/* Text inputs - clean thin border like ScholarStack forms */
+.stTextInput input {{
+    border-radius: 8px !important;
+    border: 1.5px solid {BORDER} !important;
+    padding: 12px 14px !important;
+    background-color: #ffffff !important;
+    color: {TEXT_DARK} !important;
+    transition: border-color 0.15s ease;
+}}
+.stTextInput input:focus {{
+    border-color: {ACCENT} !important;
+    box-shadow: 0 0 0 3px {ACCENT}22 !important;
+}}
+.stTextInput label {{ color: {TEXT_DARK} !important; font-weight: 500; font-size: 13px; }}
 
-    /* Buttons - smooth hover lift */
-    .stButton button {{
-        border-radius: 10px; font-weight: 600; transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }}
-    .stButton button:hover {{
-        transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }}
+/* Tabs - clean underline style, not boxy */
+.stTabs [data-baseweb="tab-list"] {{ gap: 28px; border-bottom: 1px solid {BORDER}; }}
+.stTabs [data-baseweb="tab"] {{
+    height: 42px; background-color: transparent !important; border-radius: 0 !important;
+    padding: 0px 2px !important; font-weight: 600; color: {TEXT_MUTED} !important;
+}}
+.stTabs [aria-selected="true"] {{
+    color: {ACCENT} !important; border-bottom: 2.5px solid {ACCENT} !important;
+    background-color: transparent !important;
+}}
 
-    /* Chat message cards */
-    [data-testid="stChatMessage"] {{
-        background-color: {card_bg}; border-radius: 14px; padding: 10px 6px;
-        margin-bottom: 10px; border: 1px solid rgba(128,128,128,0.15);
-        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }}
+/* Primary buttons - solid orange, ScholarStack style */
+.stButton button {{
+    border-radius: 8px; font-weight: 600; border: none;
+    background-color: {ACCENT}; color: white;
+    transition: background-color 0.15s ease;
+}}
+.stButton button:hover {{ background-color: {ACCENT_DARK}; color: white; }}
+.stButton button:focus {{ color: white !important; }}
+[data-testid="stSidebar"] .stButton button {{
+    background-color: transparent; border: 1px solid rgba(255,255,255,0.2); color: {SIDEBAR_TEXT} !important;
+}}
+[data-testid="stSidebar"] .stButton button:hover {{ border-color: {ACCENT}; background-color: rgba(255,107,74,0.1); }}
 
-    /* Expanders */
-    div[data-testid="stExpander"] {{
-        border-radius: 12px; border: 1px solid rgba(128,128,128,0.2);
-        box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-    }}
+/* Chat message cards - soft, minimal */
+[data-testid="stChatMessage"] {{
+    background-color: #FAFAFB; border-radius: 12px; padding: 10px 6px;
+    margin-bottom: 10px; border: 1px solid {BORDER};
+}}
 
-    /* Dataframe / Browse Documents table */
-    .stDataFrame thead tr th {{
-        background-color: {accent} !important; color: white !important; font-weight: 700 !important;
-    }}
-    .stDataFrame {{ border-radius: 12px; overflow: hidden; }}
+/* Expanders */
+div[data-testid="stExpander"] {{ border-radius: 10px; border: 1px solid {BORDER}; }}
 
-    /* Progress bar (confidence score) */
-    .stProgress > div > div {{ background-color: {accent} !important; border-radius: 8px; }}
-    </style>
-    """
+/* Dataframe / Browse Documents table */
+.stDataFrame thead tr th {{ background-color: {TEXT_DARK} !important; color: white !important; font-weight: 700 !important; }}
+.stDataFrame {{ border-radius: 10px; overflow: hidden; border: 1px solid {BORDER}; }}
 
+/* Progress bar (confidence score) - orange fill */
+.stProgress > div > div {{ background-color: {ACCENT} !important; border-radius: 6px; }}
 
-st.markdown(get_theme_css(st.session_state.theme), unsafe_allow_html=True)
+/* Login split panel */
+.auth-illustration {{
+    background-color: {PANEL_SOFT}; border-radius: 16px; height: 480px;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+}}
+.auth-illustration svg {{ margin-bottom: 20px; }}
+.auth-illustration .caption {{ color: {TEXT_MUTED}; font-size: 15px; text-align: center; padding: 0 30px; }}
+</style>
+"""
+st.markdown(APP_CSS, unsafe_allow_html=True)
 
 # ----------------------------
 # LOGIN / REGISTER SCREEN
@@ -131,20 +147,50 @@ if "logged_in" not in st.session_state:
 
 if not st.session_state.logged_in:
     st.markdown(
-        '<div class="hte-header"><h1>🏛️ HTE Portal</h1>'
-        '<p>AI-Powered Decision Support — Please log in or create an account to continue</p></div>',
+        '<div class="brand-bar"><span class="logo">🎓</span>'
+        '<span class="name">HTE Portal</span>'
+        '<span class="tagline">AI-Powered Decision Support</span></div>',
         unsafe_allow_html=True
     )
 
-    login_col1, login_col2, login_col3 = st.columns([1, 1.4, 1])
-    with login_col2:
-        st.markdown('<div class="login-card">', unsafe_allow_html=True)
-        login_tab, register_tab = st.tabs(["Log In", "Register"])
+    illustration_col, form_col = st.columns([1, 1.1], gap="large")
+
+    with illustration_col:
+        svg_illustration = """
+        <svg width="220" height="220" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="40" r="10" fill="#FF6B4A" opacity="0.15"/>
+            <circle cx="195" cy="60" r="14" fill="#8B7FE8" opacity="0.2"/>
+            <circle cx="190" cy="180" r="8" fill="#FF6B4A" opacity="0.25"/>
+            <circle cx="20" cy="180" r="6" fill="#8B7FE8" opacity="0.3"/>
+            <rect x="55" y="30" width="110" height="140" rx="12" fill="#FFFFFF" stroke="#E2E5EA" stroke-width="2"/>
+            <rect x="72" y="55" width="76" height="8" rx="4" fill="#14151F" opacity="0.85"/>
+            <rect x="72" y="75" width="60" height="6" rx="3" fill="#6B7280" opacity="0.5"/>
+            <rect x="72" y="90" width="66" height="6" rx="3" fill="#6B7280" opacity="0.5"/>
+            <rect x="72" y="105" width="50" height="6" rx="3" fill="#6B7280" opacity="0.5"/>
+            <rect x="72" y="128" width="76" height="6" rx="3" fill="#6B7280" opacity="0.3"/>
+            <rect x="72" y="142" width="55" height="6" rx="3" fill="#6B7280" opacity="0.3"/>
+            <circle cx="155" cy="145" r="28" fill="#FF6B4A"/>
+            <path d="M142 145 L151 154 L169 134" stroke="white" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="40" y="185" width="140" height="8" rx="2" fill="#14151F" opacity="0.15"/>
+        </svg>
+        """
+        st.markdown(
+            f'<div class="auth-illustration">{svg_illustration}'
+            '<div class="caption">Ask questions in English, Hindi, or Marathi and get '
+            'source-grounded answers from official HTE department documents.</div>'
+            '</div>',
+            unsafe_allow_html=True
+        )
+
+    with form_col:
+        login_tab, register_tab = st.tabs(["Sign In", "Create Account"])
 
         with login_tab:
+            st.markdown('<div class="section-title">Welcome back</div>', unsafe_allow_html=True)
+            st.markdown('<div class="section-sub">Sign in to continue to your assistant</div>', unsafe_allow_html=True)
             login_username = st.text_input("Username", key="login_username")
             login_password = st.text_input("Password", type="password", key="login_password")
-            if st.button("Log In", use_container_width=True):
+            if st.button("Sign In", use_container_width=True):
                 if login_username and login_password:
                     success, message = login_user(login_username, login_password)
                     if success:
@@ -158,20 +204,22 @@ if not st.session_state.logged_in:
                     st.error("Please enter both username and password.")
 
         with register_tab:
+            st.markdown('<div class="section-title">Create your account</div>', unsafe_allow_html=True)
+            st.markdown('<div class="section-sub">Get started with the HTE Assistant</div>', unsafe_allow_html=True)
             reg_username = st.text_input("Choose a username", key="reg_username")
             reg_password = st.text_input("Choose a password", type="password", key="reg_password")
-            if st.button("Register", use_container_width=True):
+            if st.button("Create Account", use_container_width=True):
                 if reg_username and reg_password:
                     success, message = register_user(reg_username, reg_password)
                     if success:
-                        st.success(message + " Please log in now.")
+                        st.success(message + " Please sign in now.")
                     else:
                         st.error(message)
                 else:
                     st.error("Please enter both a username and password.")
-        st.markdown('</div>', unsafe_allow_html=True)
 
     st.stop()
+
 
 # ----------------------------
 # SESSION STATE
@@ -192,18 +240,14 @@ def find_source_pdf(source_txt_name):
 # SIDEBAR
 # ----------------------------
 with st.sidebar:
-    st.title("🏛️ HTE Portal")
+    st.markdown('<span style="font-size:22px; font-weight:800;">🎓 HTE Portal</span>', unsafe_allow_html=True)
     st.caption("AI-Powered Decision Support")
 
     st.write(f"👤 Logged in as: **{st.session_state.username}**")
 
-    theme_choice = st.selectbox("🎨 Theme", ["Light", "Dark"], index=0 if st.session_state.theme == "Light" else 1)
-    if theme_choice != st.session_state.theme:
-        st.session_state.theme = theme_choice
-        st.rerun()
-
     st.selectbox(
         "🌐 Interface Language",
+
         ["Auto-detect (recommended)", "English", "मराठी (Marathi)", "हिंदी (Hindi)"],
         help="The system auto-detects your question's language and replies in the same language"
     )
@@ -239,16 +283,17 @@ tab_chat, tab_summarize, tab_compare, tab_browse = st.tabs([
 # TAB 1: AI CHAT ASSISTANT
 # ==========================================
 with tab_chat:
+    st.markdown('<div class="section-title">HTE Department Assistant</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="hte-header"><h1>HTE Department Assistant</h1>'
-        '<p>Ask questions and get verified answers based on official GRs, circulars, and notifications — '
-        'in English, Hindi, or Marathi.</p></div>',
+        '<div class="section-sub">Ask questions and get verified answers based on official GRs, '
+        'circulars, and notifications — in English, Hindi, or Marathi.</div>',
         unsafe_allow_html=True
     )
 
     def render_answer_extras(message, idx, is_new=False):
         conf = message.get("confidence", 0)
-        st.progress(conf / 100.0, text=f"Overall Confidence: {conf}%")
+        st.caption(f"Overall Confidence: **{conf}%**")
+        st.progress(conf / 100.0)
 
         if message.get("response_time"):
             st.caption(f"⏱️ Answered in {message['response_time']:.1f}s")
